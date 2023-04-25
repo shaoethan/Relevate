@@ -1,15 +1,14 @@
 from flask import Flask, render_template
+# Import the necessary libraries
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
 # Define the route for the list of movies
 @app.route('/movies')
 def movies():
-    # Import the necessary libraries
-    import pandas as pd
-    from sklearn.feature_extraction.text import CountVectorizer
-    from sklearn.metrics.pairwise import cosine_similarity
-    
     # Load the dataset
     df = pd.read_csv('movies.csv')
     
